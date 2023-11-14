@@ -5,25 +5,16 @@ import './notes.css';
 
 function App() {
   
-  const NoteTitle = () => {
-    const [title, setTitle] = useState('');
-    const handleSetTitle = useCallback((event) => {
-      setTitle(event.target.value);
-    }, []);
-    return (
-        <input className='noteTitle' type="text" value={title} onChange={handleSetTitle} />
-    )
-  }
+  const [title, setTitle] = useState('');
+  const [text, setText] = useState('');
 
-  const NoteText = () => {
-    const [text, setText] = useState('');
-    const handleSetText = useCallback((event) => {
-      setText(event.target.value);
-    }, []);
-    return (
-        <textarea className='noteText' value={text} onChange={handleSetText} />
-    )
-  }
+  const handleSetTitle = useCallback((event) => {
+    setTitle(event.target.value);
+  }, []);
+
+  const handleSetText = useCallback((event) => {
+    setText(event.target.value);
+  }, []);
 
   const handleSaveNote = () => {
     const data = { title, text };
@@ -53,14 +44,14 @@ function App() {
             <div className="noteHeader">
                 <img className='noteLogo' src={logo} alt="React logo" />
                 <div className="noteTitle">
-                  <NoteTitle />
+                  <input className='noteTitle' type="text" value={title} onChange={handleSetTitle} />
                 </div>
                 <div className="noteClose">
                   <FaX />
                 </div>
             </div>
             <div className="noteBody">
-              <NoteText />
+              <textarea className='noteText' value={text} onChange={handleSetText} />
             </div>
             <div className="noteFooter">
               <button className='noteSave' onClick={handleSaveNote}>Save Note</button>
