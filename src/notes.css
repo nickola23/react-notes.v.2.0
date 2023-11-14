@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;;
+}
+.notesMain{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.note{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    background-color: #F5F5F5;
+    border-radius: 20px;
+    margin: 20px;
+}
+.noteHeader{
+    width: 100%;
+    margin: 5px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #282c34;
+    border-radius: 20px 20px  0 0;
+}
+.noteLogo{
+    width: 50px;
+    margin: 10px 0;
+}
+.noteTitle{
+    font-size: 1.5rem;
+    margin: 10px 0;
+    font-weight: 600;
+    color: #F5F5F5;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    width: 93%;
+}
+.noteClose{
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    cursor: pointer;
+    color: #F5F5F5;
+    transition: all linear 0.2s;
+}
+.noteClose:hover{
+    color: #61dafb;
+}
+.noteBody{
+    width: 100%;
+    height: 200px;
+    overflow-y: auto;
+    transition: all linear 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.noteText{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    outline: none;
+    border: none;
+    resize: none;
+}
+.noteText:active, .noteText:focus{
+    border: none;
+    outline: none;
+}
+.noteFooter{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #282c34;
+    border-radius: 0 0 20px 20px;
+    color: #F5F5F5;
+}
+.noteTime, .noteDate{
+    min-width: 50px;
+    text-align: center;
+    font-size: 0.775rem;
+    font-weight: 400;
+    opacity: 0.7;
+    padding: 3px;
+    margin: 0 20px 0 0;
+}
+.noteDate{
+    margin: 0 0 0 20px;
+}
+.noteSave{
+    margin: 5px;
+    padding: 5px 10px;
+    width: 90%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: #F5F5F5;
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+}
+.noteSave:hover{
+    color: #61dafb;
+}
+.addNote{
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    text-align: center;
+    background-color: #282c34;
+    border: 1px solid transparent;
+    color: #61dafb;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 2rem;
+    user-select: none;
+    cursor: pointer;
+    transition: all linear 0.2s;
+}
+.addNote:hover{
+    border: 1px solid #282c34;
+    background-color: #2d323d;
+    color: #61dafb;
+}
