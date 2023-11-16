@@ -10,6 +10,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+header('Content-Type: application/json');
+
+// Upis u bazu
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
@@ -26,6 +29,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 } else {
     echo json_encode(array("message" => "Invalid request method"));
+}
+
+// Citanje iz baze
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $sql = "SELECT * FROM note";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $notes = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $notes[] = $row;
+        }
+        echo json_encode($notes);
+    } else {
+        echo json_encode(array("message" => "No notes found"));
+    }
 }
 
 $conn->close();
